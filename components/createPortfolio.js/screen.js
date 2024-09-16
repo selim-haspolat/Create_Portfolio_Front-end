@@ -10,9 +10,9 @@ const Screen = ({
         <div
           key={object.id}
           onClick={(e) => changeSelectedObject(e, object.id)}
-          className={`w-full min-h-full relative bg-black text-white ${
+          className={`w-full min-h-full max-h-full relative ${
             selectedObject === object.id
-              ? "outline-dashed outline-[#4CAF50] outline-[2.5px] outline-offset-[-2px]"
+              ? "outline-dashed outline-[2.5px] outline-offset-[-2px]"
               : ""
           }`}
         >
@@ -27,7 +27,7 @@ const Screen = ({
           key={object.id}
           className={`relative ${
             selectedObject === object.id
-              ? "outline-dashed outline-[#4CAF50] outline-[2.5px] outline-offset-[-2px]"
+              ? "outline-dashed outline-[2.5px] outline-offset-[-2px]"
               : ""
           }`}
           onClick={(e) => changeSelectedObject(e, object.id)}
@@ -39,7 +39,10 @@ const Screen = ({
   };
 
   return objects.map((object) => {
-    return renderObject(object);
+    return <div className="w-full min-h-full px-3 py-10">
+      {renderObject(object)}
+
+    </div>
   });
 };
 

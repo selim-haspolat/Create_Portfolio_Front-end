@@ -1,14 +1,24 @@
-import { Separator } from "@/components/ui/separator";
-import React from "react";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import AddComponentsList from "../add-component/add-components-list";
+import { Separator } from "@/components/ui/separator"
 
 const SideBar = ({ object }) => {
-  console.log(object);
 
-  // bg #673AB7 #4CAF50
   return (
-    <div className="w-96 h-full overflow-y-auto p-3 bg-[#1C1C1C]">
-      <h2 className="uppercase text-center bg-[#4CAF50] p-1 rounded-md text-[#DADADA] tracking-wider">{object?.type || "-"}</h2>
-      <Separator className="my-3 bg-[#E0E0E0]" />
+    <div className="w-96 h-full overflow-y-auto p-3 border-l border-">
+      <Tabs defaultValue="object">
+        <TabsList className="grid w-full grid-cols-2">
+          <TabsTrigger value="object">{object?.type.toUpperCase() || "-"}</TabsTrigger>
+          <TabsTrigger value="components">Components</TabsTrigger>
+        </TabsList>
+        <Separator className='my-2'/>
+        <TabsContent value="object">
+          Make changes to your object here.
+        </TabsContent>
+        <TabsContent value="components">
+          <AddComponentsList />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 };

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { CalendarIcon, HomeIcon, MailIcon, PencilIcon } from "lucide-react";
+import { CalendarIcon, HomeIcon, MailIcon, PencilIcon, User } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -12,6 +12,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { Dock, DockIcon } from "@/components/magicui/dock";
+import { ModeToggle } from "./dark-mode-toggle/mode-toggle";
 
 // import { ModeToggle } from "@/components/mode-toggle";
 
@@ -61,8 +62,9 @@ const Icons = {
 
 const DATA = {
   navbar: [
-    { href: "#", icon: HomeIcon, label: "Home" },
-    { href: "#", icon: PencilIcon, label: "Blog" },
+    { href: "/", icon: HomeIcon, label: "Home" },
+    { href: "/create", icon: PencilIcon, label: "Create" },
+    { href: "/account", icon: User, label: "Account" },
   ],
   contact: {
     social: {
@@ -94,7 +96,7 @@ export function CustomDuck() {
   return (
     <div className="fixed left-[50%] translate-x-[-50%] top-[90%] bg-background">
       <TooltipProvider>
-        <Dock direction="middle" className='my-0'>
+        <Dock direction="middle" className="my-0">
           {DATA.navbar.map((item) => (
             <DockIcon key={item.label}>
               <Tooltip>
@@ -115,7 +117,7 @@ export function CustomDuck() {
               </Tooltip>
             </DockIcon>
           ))}
-          <Separator orientation="vertical" className="h-full" />
+          {/* <Separator orientation="vertical" className="h-full" />
           {Object.entries(DATA.contact.social).map(([name, social]) => (
             <DockIcon key={name}>
               <Tooltip>
@@ -135,18 +137,9 @@ export function CustomDuck() {
                 </TooltipContent>
               </Tooltip>
             </DockIcon>
-          ))}
-          {/* <Separator orientation="vertical" className="h-full py-2" /> */}
-          {/* <DockIcon>
-            <Tooltip>
-              <TooltipTrigger asChild>
-                <ModeToggle className="rounded-full" />
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>Theme</p>
-              </TooltipContent>
-            </Tooltip>
-          </DockIcon> */}
+          ))} */}
+          <Separator orientation="vertical" className="h-full py-2" />
+          <ModeToggle />
         </Dock>
       </TooltipProvider>
     </div>

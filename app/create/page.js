@@ -52,7 +52,7 @@ const CreatePortfolio = () => {
   
 
   return (
-    <>
+    <div>
       <NavBar />
       <div className="flex h-[calc(100vh-40px)]">
         <Screen
@@ -62,7 +62,7 @@ const CreatePortfolio = () => {
         />
         <SideBar object={findObject(objects)} />
       </div>
-    </>
+    </div>
   );
 };
 
