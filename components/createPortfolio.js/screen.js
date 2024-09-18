@@ -41,7 +41,6 @@ const Screen = ({
   return objects.map((object) => {
     return <div className="w-full min-h-full px-3 py-10">
       {renderObject(object)}
-
     </div>
   });
 };

@@ -23,6 +23,7 @@ const CreatePortfolio = () => {
           id: v4(),
           type: "text",
           text: "Hello World",
+          child: []
         },
       ],
     },
@@ -60,7 +61,7 @@ const CreatePortfolio = () => {
           changeSelectedObject={changeSelectedObject}
           objects={objects}
         />
-        <SideBar object={findObject(objects)} />
+        <SideBar object={findObject(objects)} objects={objects} selectedObject={selectedObject} setObjects={setObjects} />
       </div>
     </div>
   );

@@ -31,6 +31,7 @@ const Test = () => {
       >
         <ComponentHero />
       </Resizable>
+
     </div>
   );
 };

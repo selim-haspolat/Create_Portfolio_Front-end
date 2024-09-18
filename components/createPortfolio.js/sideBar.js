@@ -2,7 +2,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import AddComponentsList from "../add-component/add-components-list";
 import { Separator } from "@/components/ui/separator"
 
-const SideBar = ({ object }) => {
+const SideBar = ({ object, objects, selectedObject, setObjects }) => {
 
   return (
     <div className="w-96 h-full overflow-y-auto p-3 border-l border-">
@@ -16,7 +16,7 @@ const SideBar = ({ object }) => {
           Make changes to your object here.
         </TabsContent>
         <TabsContent value="components">
-          <AddComponentsList />
+          <AddComponentsList objects={objects} selectedObject={selectedObject} setObjects={setObjects}/>
         </TabsContent>
       </Tabs>
     </div>
